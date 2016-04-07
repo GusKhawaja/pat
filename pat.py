@@ -61,10 +61,12 @@ class Core:
 	def _open_websites(self,websites):
 		# Open websites in browser
 		for website in websites:
-			webbrowser.open_new_tab(website)
-			# It's better to have a delay of 2 seconds between each new tab execution
-			time.sleep(2)
-	
+			try:
+				webbrowser.open_new_tab(website)
+				# It's better to have a delay of 2 seconds between each new tab execution
+				time.sleep(2)
+			except Exception,e:
+				print '[!] cannot open the browser for the website: ' + website				
 	# Description: Start PenTest
 	# Return: (void)	
 	def _start(self,commands,websites,folder_name,file_name):
@@ -100,8 +102,11 @@ class Core:
 			commands_file = open(commands_file_path,'r')
 	
 			for command_line in commands_file.readlines():
-				command_line_splitted = command_line.split(':')
-				commands[command_line_splitted[0]] = command_line_splitted[1]
+				try:
+					command_line_splitted = command_line.split(':')
+					commands[command_line_splitted[0]] = command_line_splitted[1]
+				except Exception,e:
+						print '[!] Error: The file' + 	commands_file_path + ' is corrupted!'			
 				
 		return commands
 	
