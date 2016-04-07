@@ -42,7 +42,7 @@ class Core:
 			print self.utilities.blue_color + self.utilities.seperator_double_line
 			file_to_save.close()
 		except Exception,e:
-			print utilities.red_color + '[!] Error: Cannot save the results to a file!'
+			print self.utilities.red_color + '[!] Error: Cannot save the results to a file!'
 
 	# Description: Open and execute Linux Terminal command
 	# Return: (string) return the results output after executing the command		
@@ -53,7 +53,7 @@ class Core:
 			output += '\r\n'
 		except Exception,e:
 			output += str(e)
-			print utilities.red_color + "[!] Error executing the command: " + cmd
+			print self.utilities.red_color + "[!] Error executing the command: " + cmd
 		output +=  self.utilities.seperator_single_line + '\r\n'
 		return output
 	
@@ -77,13 +77,13 @@ class Core:
 				# It's better to have a delay of 2 seconds between each new tab execution
 				time.sleep(2)
 			except Exception,e:
-				print utilities.red_color + '[!] cannot open the browser for the website: ' + website				
+				print self.utilities.red_color + '[!] cannot open the browser for the website: ' + website				
 	# Description: Start PenTest
 	# Return: (void)	
 	def _start(self,commands,websites,folder_name,file_name):
 		# If both lists are null then we stop here
 		if commands == {} and websites == []:
-			print utilities.red_color + '[!] No commands available! for: ' + folder_name + '/' + file_name 
+			print self.utilities.red_color + '[!] No commands available! for: ' + folder_name + '/' + file_name 
 			return
 		
 		# Execute and save terminal commands
@@ -118,7 +118,7 @@ class Core:
 					command_line_splitted = command_line.split(':')
 					commands[command_line_splitted[0]] = command_line_splitted[1]
 				except Exception,e:
-						print utilities.red_color + '[!] Error: The file' + commands_file_path + ' is corrupted!'			
+						print self.utilities.red_color + '[!] Error: The file' + commands_file_path + ' is corrupted!'			
 				
 		return commands
 	
