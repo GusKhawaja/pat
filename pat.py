@@ -8,7 +8,15 @@ import argparse
 
 class Utilities:
 	# Common seperator line for the application
-	seperator_line = '------------------------------------------------------------'
+	seperator_single_line = '------------------------------------------------------------'
+	seperator_double_line = '============================================================'
+	
+	#Static values
+	reports_folder_name = "Reports"
+	reconnaissance_category = 'Reconnaissance'
+	red_color = '\033[31m'
+	blue_color = '\033[34m'
+	purple_color = '\033[35m'
 	
 	def __init__(self):
 		self.name = 'static class'
@@ -22,7 +30,7 @@ class Core:
 	# Return: (void)
 	def _save_results(self,results,folder_name,file_name):
 		try:
-			# Create a directory for the category e.g reconnissance or external scanning ...
+			# Create a directory for the category e.g reconnaissance or external scanning ...
 			if not os.path.isdir(folder_name):
 				os.mkdir(folder_name)
 				
@@ -30,9 +38,11 @@ class Core:
 			file_name = folder_name + '/'+ file_name
 			file_to_save = open(file_name,'w')
 			file_to_save.write(results)
+			print self.utilities.blue_color + "[+] Report saved to: " + file_name
+			print self.utilities.blue_color + self.utilities.seperator_double_line
 			file_to_save.close()
 		except Exception,e:
-			print '[!] Error: Cannot save the results to a file!'
+			print utilities.red_color + '[!] Error: Cannot save the results to a file!'
 
 	# Description: Open and execute Linux Terminal command
 	# Return: (string) return the results output after executing the command		
@@ -43,7 +53,8 @@ class Core:
 			output += '\r\n'
 		except Exception,e:
 			output += str(e)
-		output +=  self.utilities.seperator_line + '\r\n'
+			print utilities.red_color + "[!] Error executing the command: " + cmd
+		output +=  self.utilities.seperator_single_line + '\r\n'
 		return output
 	
 	# Description: Iterate each command then open and execute Linux Terminal command
@@ -66,37 +77,38 @@ class Core:
 				# It's better to have a delay of 2 seconds between each new tab execution
 				time.sleep(2)
 			except Exception,e:
-				print '[!] cannot open the browser for the website: ' + website				
+				print utilities.red_color + '[!] cannot open the browser for the website: ' + website				
 	# Description: Start PenTest
 	# Return: (void)	
 	def _start(self,commands,websites,folder_name,file_name):
 		# If both lists are null then we stop here
-		if commands == None and websites == None:
-			print 'No commands available'
+		if commands == {} and websites == []:
+			print utilities.red_color + '[!] No commands available! for: ' + folder_name + '/' + file_name 
 			return
 		
 		# Execute and save terminal commands
-		if commands != None:
+		if commands != {}:
 			results = self._execute_commands(commands)
 			print results
 			self._save_results(results,folder_name,file_name)
 		
 		# Open websites
-		if websites != None:
+		if websites != []:
 			self._open_websites(websites)
 	
 	# Description: Create a directory by Client Domain Name
 	# Return: (void)			
 	def _create_client_domain_folder(self):
-		if not os.path.isdir(self.company_domain_name):
-			os.mkdir(self.company_domain_name)
+		root_folder_path = self.utilities.reports_folder_name + '/' + self.company_domain_name
+		if not os.path.isdir(root_folder_path):
+			os.mkdir(root_folder_path)
 	
 	# Description: Get/Load the terminal commands from file if needed
 	# Return: (dictionary list) return the list of commands			
 	def _get_commands_from_file(self,action_name):
 		commands = {}
-		# e.g commands_file_path = 'dns_commands.txt'
-		commands_file_path = action_name + '_commands.txt'
+		# e.g commands_file_path = 'Reconnaissance/dns_commands.txt'
+		commands_file_path = self.utilities.reconnaissance_category + '/' + action_name + '_commands.txt'
 	
 		if os.path.isfile(commands_file_path):
 			commands_file = open(commands_file_path,'r')
@@ -106,7 +118,7 @@ class Core:
 					command_line_splitted = command_line.split(':')
 					commands[command_line_splitted[0]] = command_line_splitted[1]
 				except Exception,e:
-						print '[!] Error: The file' + 	commands_file_path + ' is corrupted!'			
+						print utilities.red_color + '[!] Error: The file' + commands_file_path + ' is corrupted!'			
 				
 		return commands
 	
@@ -114,8 +126,8 @@ class Core:
 	# Return: (array) return the list of websites				
 	def _get_websites_from_file(self,action_name):
 		websites = []
-		# e.g websites_file_path= 'dns_websites.txt'
-		websites_file_path = action_name + '_websites.txt'
+		# e.g websites_file_path= 'Reconnaissance/dns_websites.txt'
+		websites_file_path = self.utilities.reconnaissance_category + '/' + action_name + '_websites.txt'
 	
 		if os.path.isfile(websites_file_path):
 			websites_file = open(websites_file_path,'r')
@@ -135,8 +147,8 @@ class Core:
 		#get websites from file
 		websites = self._get_websites_from_file(action_name)
 				
-		#e.g folder_name = 'test.com/reconnaissance'
-		folder_name = self.company_domain_name + '/' + category_name
+		#e.g folder_name = 'Reports/test.com/reconnaissance'
+		folder_name = self.utilities.reports_folder_name + '/' + self.company_domain_name + '/' + category_name
 		#e.g file_name = 'dns_report.txt'
 		file_name = action_name + '_report.txt'
 
@@ -150,7 +162,7 @@ class Main:
 	# Return: (void)		
 	def _usage(self):
 		print 'Pentester Automation Tool'
-		print self.utilities.seperator_line
+		print self.utilities.seperator_single_line
 		print 'Arguments:'
 		print '-c\t --company\t Your Client Company Domain Name'
 		print 
@@ -166,16 +178,14 @@ class Main:
 	def _print_banner(self,company_domain_name):
 		# Print Banner
 		print 'Pentesting Client Domain Name: ' + company_domain_name
-		print self.utilities.seperator_line
+		print self.utilities.seperator_single_line
 		print		
 	
 	# Description: Process the terminal arguments
 	# Return: (void)	
 	def _process_arguments(self,args,core):
-		reconnaissance_category = 'Reconnaissance'
-		
 		if args.dns_test:
-			core.pen_test('dns',reconnaissance_category)
+			core.pen_test('dns',self.utilities.reconnaissance_category)
 	
 	# Description: Initialize the terminal arguments
 	# Return: (void)	
