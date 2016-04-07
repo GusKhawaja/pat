@@ -79,10 +79,7 @@ class Core:
 		
 		if websites != None:
 			self._open_websites(websites)
-
-	def _get_company_domain_name(self):
-		return self.company_domain_name
-
+			
 	def start(self):
 		# Print Banner
 		print 'Pentesting Client Domain Name: ' + self.company_domain_name
@@ -94,8 +91,9 @@ class Core:
 			os.mkdir(self.company_domain_name)
 
 	def check(self,action_name,folder_name):
-		# Get/Load the terminal commands from if needed
+		# Get/Load the terminal commands from file if needed
 		commands = {}
+		# e.g commands_file_path = 'dns_commands.txt'
 		commands_file_path = action_name+'_commands.txt'
 		
 		if os.path.isfile(commands_file_path):
@@ -107,14 +105,16 @@ class Core:
 		
 		# Get/Load the websites from file if needed
 		websites = []
+		# e.g websites_file_path= 'dns_websites.txt'
 		websites_file_path = action_name+'_websites.txt'
 		
 		if os.path.isfile(websites_file_path):
 			websites_file = open(websites_file_path,'r')
 			for website_line in websites_file.readlines():
 				websites.append(website_line.strip('\r').strip('\n'))
+				
 		#e.g folder_name = 'test.com/reconnaissance'
-		folder_name = self._get_company_domain_name()+'/'+folder_name 
+		folder_name = self.company_domain_name + '/' + folder_name 
 		#e.g file_name = 'dns.txt'
 		file_name = action_name + '.txt'
 
