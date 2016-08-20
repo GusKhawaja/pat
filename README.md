@@ -1,7 +1,7 @@
 # The Pentester Automation Tool
 
 ## Description
-This application automates most of the penetration testing tasks using the command line. It automates DNS,Gathering emails, WHOIS, Files, SocialMedia, Scan for live hosts, Port scan, Vulnerability assessment, Brute-force attack, Scan for Web site security as well.
+This application automates most of the penetration testing tasks using the command line. It automates DNS information ,Gathering emails, WHOIS, Files, SocialMedia, Scan for live hosts, Port scan, Vulnerability assessment, Brute-force attack, Scan for Web site security as well.
 This application can be used only on the author's favorite OS "Kali Linux", it will not work on other Linux versions unless you install all the tools manually.
 
 ## Contributing
