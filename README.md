@@ -2,6 +2,7 @@
 
 ## Description
 This application automates most of the penetration testing tasks using the command line. It automates DNS,Gathering emails, WHOIS, Files, SocialMedia, Scan for live hosts, Port scan, Vulnerability assessment, Brute-force attack, Scan for Web site security as well.
+This application can be used only on the author's favorite OS "Kali Linux", it will not work on other Linux versions unless you install all the tools manually.
 
 ## Contributing
 If you're willing to help on this project ,you're welcomed to send your suggestions to the owner at: gus.khawaja@guskhawaja.me
