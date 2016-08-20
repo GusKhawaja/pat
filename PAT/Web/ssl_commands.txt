@@ -1,0 +1,3 @@
+Nmap SSL Scan: nmap --script "ssl*" [ipAddress]
+SSL Scan: sslscan --no-failed [ipAddress]
+Sslyze: sslyze --regular [ipAddress]
