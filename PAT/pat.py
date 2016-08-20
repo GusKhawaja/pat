@@ -318,10 +318,10 @@ class Main:
 		print "Example: DNS and files"
 		print "pat.py --company yourclientdomain.com -dns -files"
 		print
-		print "Example: Live Hosts Scanning"
+		print "Example: Live Hosts Scanning  - IP Required"
 		print "pat.py -c yourclientdomain.com -ip 10.0.0.1/24 -livehosts"
 		print	
-		print "Example: Web Scanning"
+		print "Example: Web Scanning - IP Required"
 		print "pat.py -c yourclientdomain.com -ip 10.0.0.1 -ssl -waf -loadbalance -vulns"
 		print			
 		#exit the application
