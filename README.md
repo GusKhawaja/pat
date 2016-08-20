@@ -75,3 +75,8 @@ If you're willing to help on this project ,you're welcomed to send your suggesti
   $python pat.py --company [YourClientDomainName] --url [WebServerUrl] -loadbalance
   ```
   
+  ```WebVulns
+  Web Server Vulnerability Assessment:
+  $python pat.py --company [YourClientDomainName] --url [WebServerUrl] -webvulns
+  ```
+  
