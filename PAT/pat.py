@@ -62,6 +62,7 @@ class Utilities:
 class Core:
 	ip_address = ''
 	current_test = ''
+	url = ''
 	
 	def __init__(self,company_domain_name,utilities):
 		self.company_domain_name = company_domain_name
@@ -199,6 +200,7 @@ class Core:
 		line = line.replace('[domain]',self.company_domain_name)
 		line = line.replace('[name]',self.utilities.extract_company_name(self.company_domain_name))
 		line = line.replace('[ipAddress]',self.ip_address)
+		line = line.replace('[url]',self.url)
 		line = line.replace('[users]',self.utilities.attack_category + "/users.txt")
 		line = line.replace('[passwords]',self.utilities.attack_category + "/passwords.txt")
 		return line
@@ -243,9 +245,12 @@ class Core:
 	
 	
 	# Description: Start penetration testing			
-	def pen_test(self,action_name,category_name,ip_address=''):
+	def pen_test(self,action_name,category_name,ip_address='',url=''):
 		# Set the IP Address
 		self.ip_address = str(ip_address)
+		
+		# Set the IP Address
+		self.url = url		
 		
 		#Set the current test name
 		self.current_test = action_name
@@ -318,10 +323,10 @@ class Main:
 		print "Example: DNS and files"
 		print "pat.py --company yourclientdomain.com -dns -files"
 		print
-		print "Example: Live Hosts Scanning  - IP Required"
+		print "Example: Live Hosts Scanning"
 		print "pat.py -c yourclientdomain.com -ip 10.0.0.1/24 -livehosts"
 		print	
-		print "Example: Web Scanning - IP Required"
+		print "Example: Web Scanning"
 		print "pat.py -c yourclientdomain.com -ip 10.0.0.1 -ssl -waf -loadbalance -vulns"
 		print			
 		#exit the application
@@ -375,20 +380,25 @@ class Main:
 		if args.websearch_test:
 			core.pen_test('websearch',self.utilities.reconnaissance_category)
 		if args.waf_test:
-			if args.ip_address == None:
+			if args.url == None:
 				self._usage()
 				
-			core.pen_test('waf',self.utilities.web_category,args.ip_address)
+			core.pen_test('waf',self.utilities.web_category,'',args.url)
 		if args.ssl_test:
-			if args.ip_address == None:
+			if args.url == None:
 				self._usage()				
 
-			core.pen_test('ssl',self.utilities.web_category,args.ip_address)
+			core.pen_test('ssl',self.utilities.web_category,'',args.url)
 		if args.loadbalance_test:
-			if args.ip_address == None:
+			if args.url == None:
 				self._usage()				
 
-			core.pen_test('loadbalance',self.utilities.web_category,args.ip_address)		
+			core.pen_test('loadbalance',self.utilities.web_category,'',args.url)
+		if args.webvulns_test:
+			if args.url == None:
+				self._usage()				
+
+			core.pen_test('webvulns',self.utilities.web_category,'',args.url)		
 		if args.livehosts_test:
 			if args.ip_address == None:
 				self._usage()
@@ -479,9 +489,11 @@ class Main:
 		parser.add_argument("-portscan","--portscan_test",help="Port Scanning",action="store_true")
 		parser.add_argument("-vulns","--vulns_test",help="Vulnerabilities Assessment",action="store_true")
 		parser.add_argument("-bruteforce","--bruteforce_test",help="Port Scanning",action="store_true")
+		parser.add_argument("-u","--url",type=str,help="Web Server URL Address")
 		parser.add_argument("-waf","--waf_test",help="Web Application Firewall Scanning",action="store_true")
 		parser.add_argument("-ssl","--ssl_test",help="SSL/TLS Scanning",action="store_true")
 		parser.add_argument("-loadbalance","--loadbalance_test",help="Load Balancer Scanning",action="store_true")
+		parser.add_argument("-webvulns","--webvulns_test",help="Web Server Vulnerabilities Scanning",action="store_true")
 		
 		# Parse the arguments
 		args= parser.parse_args()

@@ -1,0 +1,82 @@
+[+] Executing Nmap Aggressive TCP port scan...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-20 12:30 EDT
+NSE: Loaded 132 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 12:30
+Completed NSE at 12:30, 0.00s elapsed
+Initiating NSE at 12:30
+Completed NSE at 12:30, 0.00s elapsed
+Initiating Ping Scan at 12:30
+Scanning 45.40.155.145 [4 ports]
+Completed Ping Scan at 12:30, 0.10s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:30
+Completed Parallel DNS resolution of 1 host. at 12:30, 0.00s elapsed
+Initiating SYN Stealth Scan at 12:30
+Scanning ip-45-40-155-145.ip.secureserver.net (45.40.155.145) [1000 ports]
+Discovered open port 80/tcp on 45.40.155.145
+Discovered open port 22/tcp on 45.40.155.145
+Discovered open port 443/tcp on 45.40.155.145
+Completed SYN Stealth Scan at 12:31, 5.92s elapsed (1000 total ports)
+Initiating Service scan at 12:31
+Scanning 3 services on ip-45-40-155-145.ip.secureserver.net (45.40.155.145)
+Completed Service scan at 12:31, 6.46s elapsed (3 services on 1 host)
+Initiating OS detection (try #1) against ip-45-40-155-145.ip.secureserver.net (45.40.155.145)
+Retrying OS detection (try #2) against ip-45-40-155-145.ip.secureserver.net (45.40.155.145)
+Initiating Traceroute at 12:31
+Completed Traceroute at 12:31, 3.05s elapsed
+Initiating Parallel DNS resolution of 15 hosts. at 12:31
+Completed Parallel DNS resolution of 15 hosts. at 12:31, 0.07s elapsed
+NSE: Script scanning 45.40.155.145.
+Initiating NSE at 12:31
+Completed NSE at 12:32, 91.97s elapsed
+Initiating NSE at 12:32
+Completed NSE at 12:32, 0.00s elapsed
+Nmap scan report for ip-45-40-155-145.ip.secureserver.net (45.40.155.145)
+Host is up (0.074s latency).
+Not shown: 997 filtered ports
+PORT    STATE SERVICE    VERSION
+22/tcp  open  ssh        OpenSSH 6.3 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 c4:2b:30:13:48:d2:93:dd:0a:92:73:95:ec:91:a0:ed (DSA)
+|_  2048 36:62:7a:9a:77:3b:92:28:75:aa:92:a4:13:c5:14:2b (RSA)
+80/tcp  open  http       GoDaddy error
+| http-methods: 
+|_  Supported Methods: OPTIONS GET HEAD POST
+|_http-title: Site doesn't have a title (text/html).
+443/tcp open  ssl/https?
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+Network Distance: 16 hops
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+1   1.24 ms  zero-router (10.0.0.1)
+2   8.91 ms  10.11.16.57
+3   5.74 ms  10.178.206.128
+4   7.36 ms  10.178.206.129
+5   20.45 ms tcore4-montreal02_2-8-0-1.net.bell.ca (64.230.91.52)
+6   21.16 ms tcore4-newoyrkaa_hundredgige0-8-0-0.net.bell.ca (64.230.79.150)
+7   16.40 ms bx7-newyork83_hundredgige0-6-0-0.net.bell.ca (64.230.79.89)
+8   16.11 ms nyc2-brdr-01.inet.qwest.net (205.171.1.33)
+9   89.16 ms phn-edge-08.inet.qwest.net (67.14.40.50)
+10  75.51 ms 63-232-81-254.dia.static.qwest.net (63.232.81.254)
+11  ...
+12  75.49 ms ip-184-168-0-86.ip.secureserver.net (184.168.0.86)
+13  74.47 ms te0-0-0-7.trmc0215-01.ars.mgmt.phx3.gdg (184.168.0.85)
+14  87.07 ms ip-97-74-255-129.ip.secureserver.net (97.74.255.129)
+15  74.20 ms lbma1105-03.ars2.mgmt.phx3.secureserver.net (184.168.1.240)
+16  74.41 ms ip-45-40-155-145.ip.secureserver.net (45.40.155.145)
+
+NSE: Script Post-scanning.
+Initiating NSE at 12:32
+Completed NSE at 12:32, 0.00s elapsed
+Initiating NSE at 12:32
+Completed NSE at 12:32, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 114.42 seconds
+           Raw packets sent: 2160 (99.556KB) | Rcvd: 37 (2.610KB)
+
+------------------------------------------------------------

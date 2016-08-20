@@ -1,0 +1,1 @@
+Nikto Scan:nikto -host [url]

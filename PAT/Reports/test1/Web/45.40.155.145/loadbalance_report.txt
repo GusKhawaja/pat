@@ -1,0 +1,21 @@
+[+] Executing Load Balancing Scan...
+
+lbd - load balancing detector 0.4 - Checks if a given domain uses load-balancing.
+                                    Written by Stefan Behte (http://ge.mine.nu)
+                                    Proof-of-concept! Might give false positives.
+
+Checking for DNS-Loadbalancing: NOT FOUND
+Checking for HTTP-Loadbalancing [Server]: 
+
+ NOT FOUND
+
+Checking for HTTP-Loadbalancing [Date]: 16:30:12, 16:30:12, 16:30:12, 16:30:13, 16:30:13, 16:30:13, 16:30:13, 16:30:13, 16:30:13, 16:30:14, 16:30:14, 16:30:14, 16:30:14, 16:30:14, 16:30:15, 16:30:15, 16:30:15, 16:30:15, 16:30:15, 16:30:15, 16:30:16, 16:30:16, 16:30:16, 16:30:16, 16:30:16, 16:30:16, 16:30:17, 16:30:17, 16:30:17, 16:30:17, 16:30:17, 16:30:18, 16:30:18, 16:30:18, 16:30:18, 16:30:18, 16:30:18, 16:30:19, 16:30:19, 16:30:19, 16:30:19, 16:30:19, 16:30:20, 16:30:20, 16:30:20, 16:30:20, 16:30:20, 16:30:20, 16:30:21, 16:30:21, NOT FOUND
+
+Checking for HTTP-Loadbalancing [Diff]: FOUND
+< Age: 50135
+> Age: 50136
+
+45.40.155.145 does Load-balancing. Found via Methods: HTTP[Diff]
+
+
+------------------------------------------------------------

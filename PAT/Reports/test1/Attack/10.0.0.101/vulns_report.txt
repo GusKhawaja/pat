@@ -1,0 +1,89 @@
+[+] Executing SMB...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-20 12:40 EDT
+Nmap scan report for 10.0.0.101
+Host is up (0.0010s latency).
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+MAC Address: 00:15:5D:00:91:12 (Microsoft)
+
+Host script results:
+|_msrpc-enum: No accounts left to try
+| smb-mbenum: 
+|_  ERROR: Failed to connect to browser service: No accounts left to try
+| smb-security-mode: 
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb-vuln-ms10-061: No accounts left to try
+|_smbv2-enabled: Server supports SMBv2 protocol
+
+Nmap done: 1 IP address (1 host up) scanned in 0.51 seconds
+
+------------------------------------------------------------
+[+] Executing SMB...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-20 12:40 EDT
+Nmap scan report for 10.0.0.101
+Host is up (0.00085s latency).
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+MAC Address: 00:15:5D:00:91:12 (Microsoft)
+
+Host script results:
+| smb-vuln-cve2009-3103: 
+|   VULNERABLE:
+|   SMBv2 exploit (CVE-2009-3103, Microsoft Security Advisory 975497)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2009-3103
+|           Array index error in the SMBv2 protocol implementation in srv2.sys in Microsoft Windows Vista Gold, SP1, and SP2, 
+|           Windows Server 2008 Gold and SP2, and Windows 7 RC allows remote attackers to execute arbitrary code or cause a 
+|           denial of service (system crash) via an & (ampersand) character in a Process ID High header field in a NEGOTIATE 
+|           PROTOCOL REQUEST packet, which triggers an attempted dereference of an out-of-bounds memory location, 
+|           aka "SMBv2 Negotiation Vulnerability." 
+|           
+|     Disclosure date: 2009-09-08
+|     References:
+|       http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3103
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3103
+
+Nmap done: 1 IP address (1 host up) scanned in 5.31 seconds
+
+------------------------------------------------------------
+[+] Executing Remote Desktop...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-20 12:40 EDT
+Nmap scan report for 10.0.0.101
+Host is up (0.00098s latency).
+PORT     STATE SERVICE
+3389/tcp open  ms-wbt-server
+| rdp-enum-encryption: 
+|   Security layer
+|_    CredSSP: SUCCESS
+MAC Address: 00:15:5D:00:91:12 (Microsoft)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.51 seconds
+
+------------------------------------------------------------
+[+] Executing Port Number 80...
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          10.0.0.101
++ Target Hostname:    10.0.0.101
++ Target Port:        80
++ Start Time:         2016-08-20 12:40:50 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Microsoft-IIS/8.5
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ Allowed HTTP Methods: OPTIONS, TRACE, GET, HEAD, POST 
++ Public HTTP Methods: OPTIONS, TRACE, GET, HEAD, POST 
++ /login.html: Admin login page/section found.
++ 7517 requests: 0 error(s) and 6 item(s) reported on remote host
++ End Time:           2016-08-20 12:41:15 (GMT-4) (25 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+
+------------------------------------------------------------

@@ -1,0 +1,109 @@
+[+] Executing Nmap SSL Scan...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-20 16:00 EDT
+NSE: [ssl-ccs-injection] No response from server: EOF
+Nmap scan report for www.ethicalhackingblog.com (45.40.155.145)
+Host is up (0.074s latency).
+rDNS record for 45.40.155.145: ip-45-40-155-145.ip.secureserver.net
+Not shown: 997 filtered ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+|_ssl-ccs-injection: No reply from server (TIMEOUT)
+
+Nmap done: 1 IP address (1 host up) scanned in 75.34 seconds
+
+------------------------------------------------------------
+[+] Executing SSL Scan...
+Version: [32m1.11.1-static[0m
+OpenSSL 1.0.2f-dev xx XXX xxxx
+[0m
+Testing SSL server [32mwww.ethicalhackingblog.com[0m on port [32m443[0m
+
+  [1;34mTLS renegotiation:[0m
+Session renegotiation [32mnot supported[0m
+
+  [1;34mTLS Compression:[0m
+Compression [32mdisabled[0m
+
+  [1;34mHeartbleed:[0m
+TLS 1.2 [32mnot vulnerable[0m to heartbleed
+TLS 1.1 [32mnot vulnerable[0m to heartbleed
+TLS 1.0 [32mnot vulnerable[0m to heartbleed
+
+  [1;34mSupported Server Cipher(s):[0m
+
+------------------------------------------------------------
+[+] Executing Sslyze...
+
+
+
+ AVAILABLE PLUGINS
+ -----------------
+
+  PluginOpenSSLCipherSuites
+  PluginChromeSha1Deprecation
+  PluginCertInfo
+  PluginSessionRenegotiation
+  PluginCompression
+  PluginHSTS
+  PluginSessionResumption
+  PluginHeartbleed
+
+
+
+ CHECKING HOST(S) AVAILABILITY
+ -----------------------------
+
+   www.ethicalhackingblog.com:443      => 45.40.155.145:443
+
+
+
+ SCAN RESULTS FOR WWW.ETHICALHACKINGBLOG.COM:443 - 45.40.155.145:443
+ -------------------------------------------------------------------
+
+Unhandled exception when processing --compression: 
+utils.SSLyzeSSLConnection.SSLHandshakeRejected - TLS / Alert handshake failure
+
+Unhandled exception when processing --reneg: 
+utils.SSLyzeSSLConnection.SSLHandshakeRejected - TLS / Alert handshake failure
+
+  * Session Resumption:
+      With Session IDs:                  ERROR (0 successful, 0 failed, 5 errors, 5 total attempts).
+        ERROR #1: SSLHandshakeRejected - TLS / Alert handshake failure
+        ERROR #2: SSLHandshakeRejected - TLS / Alert handshake failure
+        ERROR #3: SSLHandshakeRejected - TLS / Alert handshake failure
+        ERROR #4: SSLHandshakeRejected - TLS / Alert handshake failure
+        ERROR #5: SSLHandshakeRejected - TLS / Alert handshake failure
+      With TLS Session Tickets:          ERROR: SSLHandshakeRejected - TLS / Alert handshake failure
+
+Unhandled exception when processing --certinfo: 
+utils.SSLyzeSSLConnection.SSLHandshakeRejected - TLS / Alert handshake failure
+
+  * OpenSSL Heartbleed:
+      OK - Not vulnerable to Heartbleed  
+
+  * SSLV2 Cipher Suites:
+      Server rejected all cipher suites.
+
+  * TLSV1_2 Cipher Suites:
+      Undefined - An unexpected error happened: 
+                 ECDHE-RSA-DES-CBC3-SHA              timeout - timed out                
+                 ECDHE-ECDSA-AES128-SHA              timeout - timed out                
+
+  * TLSV1_1 Cipher Suites:
+      Server rejected all cipher suites.
+
+  * SSLV3 Cipher Suites:
+      Server rejected all cipher suites.
+
+  * TLSV1 Cipher Suites:
+      Server rejected all cipher suites.
+
+
+
+ SCAN COMPLETED IN 30.07 S
+ -------------------------
+
+------------------------------------------------------------

@@ -1,0 +1,10 @@
+[+] Executing Nmap WAF Scan...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-20 12:14 EDT
+WARNING: No targets were specified, so 0 hosts scanned.
+Nmap done: 0 IP addresses (0 hosts up) scanned in 0.16 seconds
+
+------------------------------------------------------------
+[+] Executing Wafw00f Scan...
+Command 'wafw00f' returned non-zero exit status 2
+------------------------------------------------------------

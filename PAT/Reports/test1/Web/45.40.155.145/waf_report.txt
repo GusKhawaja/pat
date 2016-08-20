@@ -1,0 +1,31 @@
+[+] Executing Nmap WAF Scan...
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-08-20 12:23 EDT
+Nmap scan report for ip-45-40-155-145.ip.secureserver.net (45.40.155.145)
+Host is up (0.074s latency).
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 11.05 seconds
+
+------------------------------------------------------------
+[+] Executing Wafw00f Scan...
+
+                                 ^     ^
+        _   __  _   ____ _   __  _    _   ____
+       ///7/ /.' \ / __////7/ /,' \ ,' \ / __/
+      | V V // o // _/ | V V // 0 // 0 // _/
+      |_n_,'/_n_//_/   |_n_,' \_,' \_,'/_/
+                                <
+                                 ...'
+
+    WAFW00F - Web Application Firewall Detection Tool
+
+    By Sandro Gauci && Wendel G. Henrique
+
+Checking http://45.40.155.145
+Generic Detection results:
+No WAF detected by the generic detection
+Number of requests: 13
+
+------------------------------------------------------------

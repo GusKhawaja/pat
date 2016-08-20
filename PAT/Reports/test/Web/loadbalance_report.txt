@@ -1,0 +1,21 @@
+[+] Executing Load Balancing Scan...
+
+lbd - load balancing detector 0.4 - Checks if a given domain uses load-balancing.
+                                    Written by Stefan Behte (http://ge.mine.nu)
+                                    Proof-of-concept! Might give false positives.
+
+Checking for DNS-Loadbalancing: NOT FOUND
+Checking for HTTP-Loadbalancing [Server]: 
+
+ NOT FOUND
+
+Checking for HTTP-Loadbalancing [Date]: 20:00:09, 20:00:09, 20:00:09, 20:00:09, 20:00:09, 20:00:09, 20:00:10, 20:00:10, 20:00:10, 20:00:10, 20:00:10, 20:00:10, 20:00:11, 20:00:11, 20:00:11, 20:00:11, 20:00:11, 20:00:12, 20:00:12, 20:00:12, 20:00:12, 20:00:12, 20:00:12, 20:00:13, 20:00:13, 20:00:13, 20:00:13, 20:00:13, 20:00:14, 20:00:14, 20:00:14, 20:00:14, 20:00:14, 20:00:14, 20:00:15, 20:00:15, 20:00:15, 20:00:15, 20:00:15, 20:00:16, 20:00:16, 20:00:16, 20:00:16, 20:00:16, 20:00:16, 20:00:17, 20:00:17, 20:00:17, 20:00:17, 20:00:17, NOT FOUND
+
+Checking for HTTP-Loadbalancing [Diff]: FOUND
+< Age: 6582
+> Age: 6583
+
+www.ethicalhackingblog.com does Load-balancing. Found via Methods: HTTP[Diff]
+
+
+------------------------------------------------------------

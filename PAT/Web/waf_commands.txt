@@ -1,2 +1,2 @@
-Nmap WAF Scan: nmap -p80 --script http-waf-detect.nse [ipAddress]
-Wafw00f Scan:wafw00f [ipAddress]
+Nmap WAF Scan: nmap -p80 --script http-waf-detect.nse [url]
+Wafw00f Scan:wafw00f [url]

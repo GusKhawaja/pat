@@ -8,7 +8,7 @@
 67:nmap [ipAddress] -Pn -n -sU --open -p67 --script=dhcp-discover --host-timeout 5m --min-hostgroup 100
 70:nmap [ipAddress] -Pn -n --open -p70 --script=gopher-ls --host-timeout 5m --min-hostgroup 100
 79:nmap [ipAddress] -Pn -n --open -p79 --script=finger --host-timeout 5m --min-hostgroup 100
-80:nikto -host [ipAddress]
+80:nmap [ipAddress] -Pn -n --open -p79 --script http-enum --host-timeout 5m --min-hostgroup 100
 110:nmap [ipAddress] -Pn -n --open -p110 --script=banner,pop3-capabilities,ssl-dh-params,ssl-enum-ciphers,ssl-ccs-injection,ssl-heartbleed,ssl-poodle,ssl-date,tls-nextprotoneg -sV --host-timeout 5m --min-hostgroup 100
 111:nmap [ipAddress] -Pn -n --open -p111 --script=nfs-ls,nfs-showmount,nfs-statfs,rpcinfo --host-timeout 5m --min-hostgroup 100
 123:nmap [ipAddress] -Pn -n -sU --open -p123 --script=ntp-monlist --host-timeout 5m --min-hostgroup 100
