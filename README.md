@@ -9,68 +9,68 @@ If you're willing to help on this project ,you're welcomed to send your suggesti
 ## Information Gathering
   ```DNS
   To get information about a dns:
-  $python pat.py --company [yourclientdomainname] -dns
+  $python pat.py --company [YourClientDomainName] -dns
   ```
   
    ```Emails
   To get a list of email addresses:
-  $python pat.py --company [yourclientdomainname] -emails
+  $python pat.py --company [YourClientDomainName] -emails
   ```
   
    ```WHOIS
   To get information about WHOIS:
-  $python pat.py --company [yourclientdomainname] -whois
+  $python pat.py --company [YourClientDomainName] -whois
   ```
   
    ```Files
   To get a list of leaked files on the internet:
-  $python pat.py --company [yourclientdomainname] -files
+  $python pat.py --company [YourClientDomainName] -files
   ```
   
    ```SocialMedia
   To get information about your client social media:
-  $python pat.py --company [yourclientdomainname] -socialmedia
+  $python pat.py --company [YourClientDomainName] -socialmedia
   ```
   
    ```WebSearch
   To get information about your client using the search engines:
-  $python pat.py --company [yourclientdomainname] -websearch
+  $python pat.py --company [YourClientDomainName] -websearch
   ```
   
 ## Scanning
    ```LiveHosts
   To scan for live hosts:
-  $python pat.py --company [yourclientdomainname] -ip [IPAddress/Range] -livehosts
+  $python pat.py --company [YourClientDomainName] -ip [NetworkIPAddress/Range] -livehosts
   ```
   
    ```PortScan
   For Port Scanning:
-  $python pat.py --company [yourclientdomainname] -dns -ip [IPAddress/Range] -portscan
+  $python pat.py --company [YourClientDomainName] -dns -ip [NetworkIPAddress/Range] -portscan
   ```
   
 ## Vulnerability Assessment
    ```VulnsScan
   Vulnerability Scan:
-  $python pat.py --company [yourclientdomainname] -dns -ip [IPAddress/Range] -vulns
+  $python pat.py --company [YourClientDomainName] -dns -ip [NetworkIPAddress/Range] -vulns
   ```
   
    ```BruteForce
   To brute-force the services on the client host machine(s):
-  $python pat.py --company [yourclientdomainname] -dns -ip [IPAddress/Range] -bruteforce
+  $python pat.py --company [YourClientDomainName] -dns -ip [NetworkIPAddress/Range] -bruteforce
   ```
 ## Web Application Scan  
    ```WAF
   To get information about the existence of Web Application Firewall (WAF):
-  $python pat.py --company [yourclientdomainname] -dns -ip [IPAddress/Range] -waf
+  $python pat.py --company [YourClientDomainName] -dns -ip [WebServerIPAddress] -waf
   ```
   
    ```SSL
   To get information about the server SSL/TLS security:
-  $python pat.py --company [yourclientdomainname] -dns -ip [IPAddress/Range] -ssl
+  $python pat.py --company [YourClientDomainName] -dns -ip [WebServerIPAddress] -ssl
   ```
   
    ```LoadBalance
   To get information about the webserver load balancing:
-  $python pat.py --company [yourclientdomainname] -dns -ip [IPAddress/Range] -loadbalance
+  $python pat.py --company [YourClientDomainName] -dns -ip [WebServerIPAddress] -loadbalance
   ```
   
