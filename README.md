@@ -45,32 +45,32 @@ If you're willing to help on this project ,you're welcomed to send your suggesti
   
    ```PortScan
   For Port Scanning:
-  $python pat.py --company [YourClientDomainName] -dns -ip [NetworkIPAddress/Range] -portscan
+  $python pat.py --company [YourClientDomainName] -ip [NetworkIPAddress/Range] -portscan
   ```
   
 ## Vulnerability Assessment
    ```VulnsScan
   Vulnerability Scan:
-  $python pat.py --company [YourClientDomainName] -dns -ip [NetworkIPAddress/Range] -vulns
+  $python pat.py --company [YourClientDomainName] -ip [NetworkIPAddress/Range] -vulns
   ```
   
    ```BruteForce
   To brute-force the services on the client host machine(s):
-  $python pat.py --company [YourClientDomainName] -dns -ip [NetworkIPAddress/Range] -bruteforce
+  $python pat.py --company [YourClientDomainName] -ip [NetworkIPAddress/Range] -bruteforce
   ```
 ## Web Application Scan  
    ```WAF
   To get information about the existence of Web Application Firewall (WAF):
-  $python pat.py --company [YourClientDomainName] -dns -ip [WebServerIPAddress] -waf
+  $python pat.py --company [YourClientDomainName] -ip [WebServerIPAddress] -waf
   ```
   
    ```SSL
   To get information about the server SSL/TLS security:
-  $python pat.py --company [YourClientDomainName] -dns -ip [WebServerIPAddress] -ssl
+  $python pat.py --company [YourClientDomainName] -ip [WebServerIPAddress] -ssl
   ```
   
    ```LoadBalance
   To get information about the webserver load balancing:
-  $python pat.py --company [YourClientDomainName] -dns -ip [WebServerIPAddress] -loadbalance
+  $python pat.py --company [YourClientDomainName] -ip [WebServerIPAddress] -loadbalance
   ```
   
