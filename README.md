@@ -62,16 +62,16 @@ If you're willing to help on this project ,you're welcomed to send your suggesti
 ## Web Application Scan  
    ```WAF
   To get information about the existence of Web Application Firewall (WAF):
-  $python pat.py --company [YourClientDomainName] -ip [WebServerIPAddress] -waf
+  $python pat.py --company [YourClientDomainName] --url [WebServerUrl] -waf
   ```
   
    ```SSL
   To get information about the server SSL/TLS security:
-  $python pat.py --company [YourClientDomainName] -ip [WebServerIPAddress] -ssl
+  $python pat.py --company [YourClientDomainName] --url [WebServerUrl] -ssl
   ```
   
    ```LoadBalance
   To get information about the webserver load balancing:
-  $python pat.py --company [YourClientDomainName] -ip [WebServerIPAddress] -loadbalance
+  $python pat.py --company [YourClientDomainName] --url [WebServerUrl] -loadbalance
   ```
   

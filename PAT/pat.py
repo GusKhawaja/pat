@@ -319,6 +319,8 @@ class Main:
 		print
 		print "-loadbalance\t --loadbalance_test\t Load Balancer Scanning"
 		print
+		print "-webvulns\t --webvulns_test\t Web Vulnerabilities Scanning"		
+		print
 		print
 		print "Example: DNS and files"
 		print "pat.py --company yourclientdomain.com -dns -files"
@@ -327,7 +329,7 @@ class Main:
 		print "pat.py -c yourclientdomain.com -ip 10.0.0.1/24 -livehosts"
 		print	
 		print "Example: Web Scanning"
-		print "pat.py -c yourclientdomain.com -ip 10.0.0.1 -ssl -waf -loadbalance -vulns"
+		print "pat.py -c yourclientdomain.com -u www.google.com -ssl -waf -loadbalance -webvulns"
 		print			
 		#exit the application
 		exit(0)		
