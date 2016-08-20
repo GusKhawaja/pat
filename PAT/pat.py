@@ -320,7 +320,10 @@ class Main:
 		print
 		print "Example: Live Hosts Scanning"
 		print "pat.py -c yourclientdomain.com -ip 10.0.0.1/24 -livehosts"
-		print		
+		print	
+		print "Example: Web Scanning"
+		print "pat.py -c yourclientdomain.com -ip 10.0.0.1 -ssl -waf -loadbalance -vulns"
+		print			
 		#exit the application
 		exit(0)		
 		
