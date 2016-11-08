@@ -7,6 +7,11 @@ This application can be used only on the author's favorite OS "Kali Linux", it w
 ## Contributing
 If you're willing to help on this project ,you're welcomed to send your suggestions to the owner at: gus.khawaja@guskhawaja.me
 
+##Demo
+A full tutorial of the source code architecture is available at Pluralsight:
+https://www.pluralsight.com/courses/penetration-testing-automation-using-python-kali-linux
+
+
 ## Information Gathering
   ```DNS
   To get information about a dns:
